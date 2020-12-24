@@ -4,8 +4,10 @@
 
 ## Navigation 
 - [Summary](#Summary)  
-- [Google Job Role Description for ACE](#Google-Job-Role-Description-for-ACE)  
 - [Exam Domains](Exam-Domains)  
+- [Account Setup](#Account-Setup)  
+- []()  
+- []()  
 - []()  
 - []()  
 
@@ -74,4 +76,30 @@ Go [here](https://cloud.google.com/certification/guides/cloud-engineer)
 
 ## GOOGLE CHEAT SHEET 
   
-![](https://miro.medium.com/max/10800/1*sph0ts7XHl2XHIkD0GWlSA.png)
+![](https://miro.medium.com/max/10800/1*sph0ts7XHl2XHIkD0GWlSA.png)  
+  
+
+# Account Setup  
+  
+**LEAST PRIVILEGE**  
+
+- Create a new account for billing
+- secure with 2fa
+- Forward mail to normal account   
+- Admin account for billing rarely needed.  
+
+1. Go incognito.  
+2. Go to google free trial.  
+3. create account.  
+4. Setup 2FA
+5. Set up mail forwarding   
+  
+
+`https://console.cloud.google.com`  
+  
+Projects have:  
+  
+- Names  
+- Project Id  
+- Project Number  
+- State (active)
