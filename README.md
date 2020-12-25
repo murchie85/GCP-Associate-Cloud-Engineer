@@ -6,8 +6,8 @@
 - [Summary](#Summary)  
 - [Exam Domains](Exam-Domains)  
 - [Account Setup](#Account-Setup)  
-- []()  
-- []()  
+- [SHELL](#SHELL)  
+- [Data Flows](#Data-Flows)  
 - []()  
 - []()  
 
@@ -103,3 +103,58 @@ Projects have:
 - Project Id  
 - Project Number  
 - State (active)
+
+
+# Creating a User Account   
+
+  
+For free tier,  
+
+1. Go to billing   
+2. Go to account settings/management 
+3. Add user (billing user )  
+4. Select another account - when that account creates a new project it will be linked.  
+  
+
+
+
+# SHELL   
+   
+Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)  
+  
+`gcloud help`  
+  
+`cloudshell help`  
+  
+`dl file` to doownload.   
+  
+You can run a server and view it by using the port utility top right hand side.   
+  
+SDK opens in new window.  
+
+
+
+# Data Flows   
+  
+Data flow thinking is very important in this course.  
+  
+**Mental Model** you remember something by understanding it.   
+  
+
+- MOVING -------- NETWORK  
+- PROCESSING -------- COMPUTE  
+- REMEMBERING -------- STORAGE  
+   
+This is a general appraoch.  
+
+Systems combine   
+  
+- Build largers systems from smaller ones   (abstractions useful)
+- zoom in and out    
+  
+
+Example for cloud lab  
+  
+![](images/dataflowshell.png)  
+  
+  
