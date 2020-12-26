@@ -193,12 +193,19 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 
 `dl file` to doownload a file.  
   
-
-  
 You can run a server and view it by using the port utility top right hand side.   
   
 SDK opens in new window.  
+  
 
+## GSUTIL
+  
+
+| command      | description           |  
+| :------------- |:-------------|    
+|`gsutil ls`|  List buckets|  
+|`gsutil ls bucket `| list items in bucket|  
+|`gsutil ls bucket/** `| list everything |  
 
 
 # Data Flows   
