@@ -338,7 +338,59 @@ Start with :
 |`gcloud init`| set up your config |  
 |`gcloud config list`|  List all config properties|   
 |`gcloud config configurations list`| List which ones you are using|
-|||
+  
+  
+
+# Compute  
+  
+## Steps to connect   
+
+Open Shell   
+run `gcloud config list`   
+run `ls -a` to check for hidden directories.   
+`whoami`  
+`hostname`  
+`curl api.ipify.org`  check which IP i appear to be connecting from.  
+`gcloud compute instances list`  
+  
+`gcloud compute instances create myhappyvm -h`	  get help on creating compute    
+Note default is **n1-standard-1**  
+
+## Run a free machine  
+  
+`gcloud compute machine-types list`	  list too big, so lets filter  
+`gcloud compute machine-types list --filter="NAME:f1-micro"`  Still a bit too big.  
+  
+Note free is only available in us-west  
+ 
+`gcloud compute machine-types list --filter="NAME:f1-micro AND ZONE~us-west"`    
+  
+**set default for free**  
+  
+`gcloud config set compute/zone us-west2-b`
+`gcloud config set compute/region us-west2`
+    
+
+`gcloud compute instances create --machine-type=f1-micro murchievm`  
+    
+## TL:DR  
+    
+ Doesn't work but need to find a way to make it work:  
+
+`gcloud compute instances create --machine-type=f1-micro murchievm --region us-west2 --zone us-west2-b `
+  
+  
+**OUTPUT**  
+```
+Created [https://www.googleapis.com/compute/v1/projects/myuserproject-299719/zones/us-west2-b/instances/murchievm].
+NAME       ZONE        MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
+murchievm  us-west2-b  f1-micro                   10.168.0.2   35.235.109.34  RUNNING
+```  
+
+
+
+  
+
 
 # Data Flows   
   
