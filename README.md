@@ -184,9 +184,10 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 
 |gutils  | command |  
 |:-----------| :-----------|
-|copy file  | `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | 
-|list bucket contents | `gsutil ls gs://my-awesome-bucket`   | 
-|list bucket conent details | `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  
+| `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | copy file  |
+| `gsutil ls gs://my-awesome-bucket`   | list bucket contents |
+| `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  list bucket conent details |  
+
   
 
 
