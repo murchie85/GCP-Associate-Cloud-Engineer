@@ -404,6 +404,73 @@ Connect by using external IP address (name and internal not sufficient)
   
 *note* if we run ssh ipaddress it will fail, because we have no keys. But blueprint will be added.  
   
+Give it a seed for password (it sets up a keychain)    
+  
+- whoamai is same
+- curl api.ipify.org will give similar addresses between shell and compute   
+  
+
+### Looking at the SSH  
+   
+
+Outside SSH in our shell terminal.  
+```
+cd .ssh  
+ls  
+cat google_compute_engine.pub  
+  
+``` 
+  
+**private key**  
+  
+By heading the google_compute_engine file  
+  
+`head -n 10 google_compute_engine`  
+    
+ Public key in authorized keys (.ssh) inside the VM should be the same, because: 
+
+- public key says who we are.    
+    
+
+run inside vm  
+
+`curl metadata.google.internal/computeMetadata/v1/`    
+  
+will get an error to add a header:  
+
+`curl -H "Metadata-Flavor:Google" metadata.google.internal/computeMetadata/v1/project/ `
+    
+  
+**output**   
+
+```
+instance/
+oslogin/
+project/
+```  
+  
+To drill down...  
+  
+```
+curl -H "Metadata-Flavor:Google" metadata.google.internal/computeMetadata/v1/project/ 
+```  
+  
+If we go deep enough we can find the public key, so this is how the info was passed in.  
+  
+You can get instance name, service account defaults, token for api requests.  
+  
+we can run `gcloud config list`  
+    
+so we have access to cloud resources , such as buckets using `gsutil`  
+  
+
+
+You can't delete the VM from inside the VM.  
+  
+
+
+
+
 
   
 
