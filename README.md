@@ -11,6 +11,7 @@
 	- [Global Flags and setting](#Global-Flags-and-setting)  
 	- [Cloudshell Commands](#Cloudshell-Commands)  
 	- [GSUTIL Global Storage](#GSUTIL-Global-Storage)	
+	- [Configurations](#Configurations)
 - [Data Flows](#Data-Flows)  
 - []()  
 - []()  
@@ -150,6 +151,10 @@ To be extra safe specifiy project name every time:
 
 ## Global Flags and setting
   
+  
+[Navigation](#Navigation)  
+  
+
 
 `--help`  
 `-h`  
@@ -176,6 +181,10 @@ Always set values using set, i.e. `gcloud config set <property>  <value>  `
 **Unset** `gcloud config unset <property> `  
   
 ## Cloudshell Commands
+    
+
+[Navigation](#Navigation)  
+  
 
 ## General  
 
@@ -257,6 +266,11 @@ Always set values using set, i.e. `gcloud config set <property>  <value>  `
 
 
 ## GSUTIL Global Storage
+
+  
+[Navigation](#Navigation)  
+  
+
   
 [creatingBuckets](https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-gsutil)  
 [storageLocations](https://cloud.google.com/storage/docs/locations)   
@@ -288,8 +302,12 @@ Always set values using set, i.e. `gcloud config set <property>  <value>  `
 |`gsutil acl ch -u AllUsers:R gs://my-bucket/stuff.jpg`| change permisions|  
   
 
-## Configurations  
+## Configurations
     
+  
+[Navigation](#Navigation)  
+  
+  
 **RULE OF THUMNB**  
   
 1. Make a new configuration  `gcloud config configurations create newconfig`  
