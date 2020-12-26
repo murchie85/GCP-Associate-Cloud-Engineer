@@ -154,9 +154,9 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 | `gcloud services list`| list available services |
 | `gcloud services list --enabled`| list enabled services |
 | `gcloud services list --available`| list available services |
-| `gcloud services list --available | grep compute`| list check if compute is in available services|  
+| `gcloud services list --available pipe grep compute`| list check if compute is in available services|  
   
-  
+
   
 ## Identity & Access Management
   
