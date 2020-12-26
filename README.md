@@ -136,11 +136,13 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 | cloudshell      | command           | 
 | ------------- |:-------------| 
 | list projects| `gcloud projects list`  |  
-| set project | `gcloud config set project` | 
+| set project | `gcloud config set project` |   
+| project info| `gcloud projects describe` | 
 | showconfig | `gcloud config list`  |
 | Install specific components | `gcloud components install` |
 | show current env details | `gcloud info`  |
-|Define a property (like compute/zone) for the current configuration| `gcloud config set`
+|Define a property (like compute/zone) for the current configuration| `gcloud config set`|  
+|Display all the properties for the current configuration.| `gcloud config list`|
   
 
 
