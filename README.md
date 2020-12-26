@@ -200,12 +200,17 @@ SDK opens in new window.
 
 ## GSUTIL
   
+[creatingBuckets](https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-gsutil)  
+[storageLocations](https://cloud.google.com/storage/docs/locations)  
 
 | command      | description           |  
 | :------------- |:-------------|    
 |`gsutil ls`|  List buckets|  
 |`gsutil ls bucket `| list items in bucket|  
 |`gsutil ls bucket/** `| list everything |  
+|`gsutil mb `| make bucket|  
+|`gsutil mb --help`| make bucket help  |  
+|`gsutil mb -l EUROPE-WEST2 gs://mcmurchie_london_bucket` | create bucket in london with name|  
 
 
 # Data Flows   
