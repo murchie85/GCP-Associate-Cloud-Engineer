@@ -168,6 +168,19 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 |`gcloud container clusters get-credentials`| Update kubeconfig to get kubectl to use a GKE cluster.| 
 |`gcloud container images list-tags`| List tag and digest metadata for a container image.| 
   
+    
+## Virtual Machines & Compute Engine   
+  
+| command      | description           |  
+| :------------- |:-------------|    
+|`gcloud compute zones list`|  List Compute Engine zones.|
+|`gcloud compute instances describe`|  Display a VM instance's details.|
+|`gcloud compute instances list`|  List all VM instances in a project.|
+|`gcloud compute disks snapshot`|  Create snapshot of persistent disks.|
+|`gcloud compute snapshots describe`|  Display a snapshot's details.|
+|`gcloud compute snapshots delete`|  Delete a snapshot.|
+|`gcloud compute ssh`|  Connect to a VM instance by using SSH.  |
+  
 
 |gutils  | command |  
 |:-----------| :-----------|
