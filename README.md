@@ -8,7 +8,7 @@
 - [Exam Domains](#Exam-Domains)   
 - [Account Setup](#Account-Setup)  
 - [Shell Overview](#Shell)
-	- [Global Flags](#Global-Flags)  
+	- [Global Flags and setting](#Global-Flags-and-setting)  
 	- [Cloudshell Commands](#Cloudshell-Commands)  
 	- [GSUTIL Global Storage](#GSUTIL-Global-Storage)	
 - [Data Flows](#Data-Flows)  
@@ -148,7 +148,7 @@ To be extra safe specifiy project name every time:
 `gcloud --project myprojectID compute instances list`  
     
 
-## Global Flags  and setting
+## Global Flags and setting
   
 
 `--help`  
