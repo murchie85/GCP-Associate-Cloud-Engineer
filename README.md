@@ -3,15 +3,16 @@
  ![GCP](https://miro.medium.com/max/1170/0*ynoPPPbkLerdcQ2x.png)
 
 ## Navigation 
+
 - [Summary](#Summary)  
-- [Exam Domains](Exam-Domains)  
+- [Exam Domains](#Exam-Domains)   
 - [Account Setup](#Account-Setup)  
-- [SHELL](#SHELL)  
+- [Shell](#Shell)  
 - [Data Flows](#Data-Flows)  
 - []()  
 - []()  
 
-## Summary 
+## Summary
 
 GCP ACE is similar but slightly harder than the AWS SysOps (the hardest of the AWS associate exams).  
   
@@ -31,6 +32,9 @@ An Associate Cloud Engineer deploys applications, monitors operations of multipl
 
 # Exam Domains   
   
+[Navigation](#Navigation)   
+  
+ 
 1. Setting up a cloud solution environment  
 2. Planning and configuring a cloud solution.  
 3. Deploying an implementing a cloud solution.  
@@ -76,6 +80,10 @@ Go [here](https://cloud.google.com/certification/guides/cloud-engineer)
 
 ## GOOGLE CHEAT SHEET 
   
+[Navigation](#Navigation)   
+  
+
+  
 ![](https://miro.medium.com/max/10800/1*sph0ts7XHl2XHIkD0GWlSA.png)  
   
 
@@ -118,8 +126,11 @@ For free tier,
 
 
 
-# SHELL   
-   
+# Shell   
+  
+[Navigation](#Navigation)  
+  
+
 Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)  
   
 `gcloud help`  
@@ -136,6 +147,10 @@ SDK opens in new window.
 
 # Data Flows   
   
+[Navigation](#Navigation)   
+  
+  
+
 Data flow thinking is very important in this course.  
   
 **Mental Model** you remember something by understanding it.   
