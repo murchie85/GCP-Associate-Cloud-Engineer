@@ -162,7 +162,6 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
   
 | command      | description           |  
 | :------------- |:-------------|   
-
 |`gcloud auth configure-docker`| Register the gcloud tool as a Docker credential helper.| 
 |`gcloud container clusters create`| Create a cluster to run GKE containers. | 
 |`gcloud container clusters list`| List clusters for running GKE containers. | 
