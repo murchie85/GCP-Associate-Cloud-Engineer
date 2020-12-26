@@ -467,10 +467,21 @@ so we have access to cloud resources , such as buckets using `gsutil`
 
 You can't delete the VM from inside the VM.  
   
+    
+  
 
+**GCE Control Plane**  
+  
 
-
-
+Hypervisor will see CPU, Disk and network access of virtual machine   
+  
+OS level wont be visible (memory, garbage collection in jvm)  
+  
+once set up, the control plane outage wouldn't affect the VMs as they have the orders already  
+  
+this is why if outage you may not be able to delete, stop , start but it will still be fine.  
+  
+  
 
   
 
@@ -500,6 +511,8 @@ Systems combine
 
 Example for cloud lab  
   
-![](images/dataflowshell.png)  
+![](images/dataflowshell.png)    
   
+
+
   
