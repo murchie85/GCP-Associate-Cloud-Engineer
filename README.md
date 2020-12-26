@@ -199,19 +199,19 @@ SDK opens in new window.
 | command      | description           |  
 | :------------- |:-------------|    
 |`gsutil ls`|  List buckets|  
-| `gsutil ls gs://my-bucket`   | list bucket contents |  
+| `gsutil ls gs://my-bucket`   | list bucket contents |
+| `gsutil ls -a gs://my-bucket`   | list bucket archive info |   
 |`gsutil ls bucket/** `| list everything |  
 |`gsutil mb `| make bucket|  
 |`gsutil mb --help`| make bucket help  |  
 |`gsutil mb -l EUROPE-WEST2 gs://mcmurchie_london_bucket` | create bucket in london with name|  
-| `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | copy file  |
+| `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | copy file into bucket  |
 | `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  list bucket conent details |  
-|`gsutil label get gs://mcmurchies_london_bucket1` | get labels for bucket |  
+|`gsutil label get gs://mcmurchies_london_bucket1` | get **labels** for bucket |  
 |`gsutil label set mylabelsfile.json gs://my_bucket/` | set label on bucket from file |   
 |`gsutil label ch -l "function:learning" gs://my-bucket/` | append label to bucket|
-
-
-
+|`gsutil versioning get gs://my-bucket` | get bucket version|
+|`gsutil versioning set on gs://my-bucket` | Enable Bucket Versioning|    
 
 # Data Flows   
   
