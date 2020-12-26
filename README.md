@@ -133,16 +133,23 @@ For free tier,
 
 Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)  
   
-| gcloud      | command           | gutils  | command |
-| ------------- |:-------------| :-----------| :-----------|
-| help | `gcloud help` | copy file  | gsutil cp Desktop/kitten.png gs://my-awesome-bucket   |
-| help | `cloudshell help`   | list bucket contents | gsutil ls gs://my-awesome-bucket   |
-| list projects| gcloud projects list  | list bucket conent details | gsutil ls -l gs://my-awesome-bucket/kitten.png   |
+| cloudshell      | command           | 
+| ------------- |:-------------| 
+| help | `gcloud help` | 
+| help | `cloudshell help`   | 
+| list projects| `gcloud projects list`  | 
 |  |  |  |    |
-
-
-   
   
+
+
+|gutils  | command |  
+|:-----------| :-----------|
+|copy file  | gsutil cp Desktop/kitten.png gs://my-awesome-bucket   | 
+|list bucket contents | `gsutil ls gs://my-awesome-bucket`   | 
+|list bucket conent details | `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  
+  
+
+     
 `dl file` to doownload a file.  
   
 
