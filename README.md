@@ -9,6 +9,7 @@
 - [Account Setup](#Account-Setup)  
 - [Shell Overview](#Shell)
 	- [Global Flags](#Global-Flags)  
+	- [Cloudshell Commands](#Cloudshell-Commands)  	
 - [Data Flows](#Data-Flows)  
 - []()  
 - []()  
@@ -172,7 +173,8 @@ Always set values using set, i.e. `gcloud config set <property>  <value>  `
 **get**  `gcloud config get <property> <value>  `  
 **set**  `gcloud config set <property> <value>  `  
 **Unset** `gcloud config unset <property> `  
-
+  
+## Cloudshell Commands
 
 ## General  
 
