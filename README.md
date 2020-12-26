@@ -131,8 +131,11 @@ For free tier,
 [Navigation](#Navigation)  
   
 
-Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)  
-   
+- Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)    
+- `dl file` to doownload a file.    
+- You can run a server and view it by using the port utility top right hand side.     
+- SDK opens in new window.    
+      
 ## General  
 
 | cloudshell      | command           | 
@@ -182,12 +185,21 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
   
     
 ## Virtual Machines & Compute Engine   
-  
+    
+- Creating compute will create users, service account  
+
+### Instances   
+
 | command      | description           |  
 | :------------- |:-------------|    
-|`gcloud compute instances list`|  List all VM instances in a project.|
+|`gcloud compute instances list`|  List all VM instances in a project.|  
+|`gcloud compute instances describe`|  Display a VM instance's details.|  
+|`gcloud compute instances create adamsvm`| create a vm, you can specify region too|  
+
+    
+| command      | description           | 
+| :------------- |:-------------|     
 |`gcloud compute zones list`|  List Compute Engine zones.|
-|`gcloud compute instances describe`|  Display a VM instance's details.|
 |`gcloud compute disks snapshot`|  Create snapshot of persistent disks.|
 |`gcloud compute snapshots describe`|  Display a snapshot's details.|
 |`gcloud compute snapshots delete`|  Delete a snapshot.|
@@ -196,11 +208,7 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
   
 
 
-`dl file` to doownload a file.  
-  
-You can run a server and view it by using the port utility top right hand side.   
-  
-SDK opens in new window.  
+
     
 
   
