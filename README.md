@@ -285,7 +285,42 @@ Always set values using set, i.e. `gcloud config set <property>  <value>  `
 |`gsutil label ch -l "function:learning" gs://my-bucket/` | append label to bucket|
 |`gsutil versioning get gs://my-bucket` | get bucket version|
 |`gsutil versioning set on gs://my-bucket` | Enable Bucket Versioning|    
-|`gsutil acl ch -u AllUsers:R gs://my-bucket/stuff.jpg`| change permisions|
+|`gsutil acl ch -u AllUsers:R gs://my-bucket/stuff.jpg`| change permisions|  
+  
+
+## Configurations  
+    
+**RULE OF THUMNB**  
+  
+1. Make a new configuration  `gcloud config configurations create newconfig`  
+2. Switch to it   `gcloud config configurations activate newconfig`  
+3. List contents `gcloud config list`   
+4. List other non active configs  `gcloud --configuration=newconfig config list`  or `gcloud config configuration describe newconfig`  
+
+Start with :   
+`gcloud init`  
+    
+
+- Maintains a group of settings to let you switch between.  
+- Great for multiple projects  
+- List all config properties `gcloud config list`  
+- Different from listing all the configurations `gcloud config configurations list`   
+  - `IS_ACTIVE` will tell you which ones you are using.  
+  - Other columns list account, project, region, zone and the name of the config.
+    
+**get**  `gcloud config get <property> <value>  `  
+**set**  `gcloud config set <property> <value>  `  
+**Unset** `gcloud config unset <property> `  
+  
+| command      | description           |  
+| :------------- |:-------------|    
+|`gcloud config configurations create ITS_NAME` | Create a gcloud configuration|
+|`gcloudconfig configurations activate ITS_NAME`| Activate config|  
+|`run_my_command --configuration=ITS_NAME`| To run a single command with a specific config|  
+|`gcloud init`| set up your config |  
+|`gcloud config list`|  List all config properties|   
+|`gcloud config configurations list`| List which ones you are using|
+|||
 
 # Data Flows   
   
