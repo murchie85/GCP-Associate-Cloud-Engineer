@@ -9,7 +9,8 @@
 - [Account Setup](#Account-Setup)  
 - [Shell Overview](#Shell)
 	- [Global Flags](#Global-Flags)  
-	- [Cloudshell Commands](#Cloudshell-Commands)  	
+	- [Cloudshell Commands](#Cloudshell-Commands)  
+	- [GSUTIL Global Storage](#GSUTIL-Global-Storage)	
 - [Data Flows](#Data-Flows)  
 - []()  
 - []()  
@@ -247,8 +248,6 @@ Always set values using set, i.e. `gcloud config set <property>  <value>  `
 |`gcloud compute snapshots delete`|  Delete a snapshot.|
 |`gcloud compute ssh`|  Connect to a VM instance by using SSH.  |
   
-  
-
 
 
     
