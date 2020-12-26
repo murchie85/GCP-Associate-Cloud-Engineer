@@ -136,6 +136,40 @@ For free tier,
 - You can run a server and view it by using the port utility top right hand side.     
 - SDK opens in new window.    
       
+  
+`gcloud <global flags> <service/product> <group/area> <command> <flags> <parameters>`    
+
+
+To be extra safe specifiy project name every time:  
+  
+`gcloud --project myprojectID compute instances list`  
+    
+
+## Global Flags  
+  
+
+`--help`  
+`-h`  
+`--project <projectID>`  
+`--account <Account> `  
+`--filter 
+   similar to grep`  
+```
+-format <can choose JSON,CSV,YAML etc>  
+     can pipe JSON to "jq"  command for further processing.  
+```  
+`--quiet (or -q)`  Ignore promts, good for scripts    
+  
+
+Always set values using set, i.e. `gcloud config set <property>  <value>  `  
+
+`gcloud config set project` is same as (and replaces)  `--project myproject`  
+ 
+`gcloud config set compute/region`  to replace `--region myregion`  
+**note we need to say compute and region**  
+  
+    
+
 ## General  
 
 | cloudshell      | command           | 
@@ -184,7 +218,7 @@ For free tier,
 |`gcloud container images list-tags`| List tag and digest metadata for a container image.| 
   
     
-## Virtual Machines & Compute Engine   
+## COMPUTE & VMs 
     
 - Creating compute will create users, service account  
 
@@ -194,7 +228,9 @@ For free tier,
 | :------------- |:-------------|    
 |`gcloud compute instances list`|  List all VM instances in a project.|  
 |`gcloud compute instances describe`|  Display a VM instance's details.|  
-|`gcloud compute instances create adamsvm`| create a vm, you can specify region too|  
+|`gcloud compute instances create adamsvm`| create a vm, you can specify region too| 
+|`gcloud compute instances delete adamsvm`| delete a vm|   
+
 
     
 | command      | description           | 
@@ -215,7 +251,7 @@ For free tier,
 
 
 
-## GSUTIL
+## GSUTIL Global Storage
   
 [creatingBuckets](https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-gsutil)  
 [storageLocations](https://cloud.google.com/storage/docs/locations)   
