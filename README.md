@@ -12,6 +12,7 @@
 	- [Cloudshell Commands](#Cloudshell-Commands)  
 	- [GSUTIL Global Storage](#GSUTIL-Global-Storage)	
 	- [Configurations](#Configurations)
+- [Compute](#Compute)  
 - [Data Flows](#Data-Flows)  
 - []()  
 - []()  
@@ -341,9 +342,13 @@ Start with :
   
   
 
-# Compute  
+# Compute    
   
-## Steps to connect   
+[Navigation](#Navigation)   
+  
+
+  
+## Steps to set up   
 
 Open Shell   
 run `gcloud config list`   
@@ -388,6 +393,17 @@ murchievm  us-west2-b  f1-micro                   10.168.0.2   35.235.109.34  RU
 ```  
 
 
+Connect by using external IP address (name and internal not sufficient)  
+  
+`ping -c 3 35.235.109.34`  
+  
+  
+## Steps to connect  
+  
+`gcloud compute ssh murchievm`  
+  
+*note* if we run ssh ipaddress it will fail, because we have no keys. But blueprint will be added.  
+  
 
   
 
