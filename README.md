@@ -145,6 +145,17 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 | `gcloud info`  | show current env details |
 | `gcloud config set`| Define a property (like compute/zone) for the current configuration|
 | `gcloud config list`|Display all the properties for the current configuration.|
+      
+  
+## Services   
+    
+| cloudshell      | command           | 
+| ------------- |:-------------| 
+| `gcloud services list`| list available services |
+| `gcloud services list --enabled`| list enabled services |
+| `gcloud services list --available`| list available services |
+| `gcloud services list --available | grep compute`| list check if compute is in available services|  
+  
   
   
 ## Identity & Access Management
@@ -173,9 +184,9 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
   
 | command      | description           |  
 | :------------- |:-------------|    
+|`gcloud compute instances list`|  List all VM instances in a project.|
 |`gcloud compute zones list`|  List Compute Engine zones.|
 |`gcloud compute instances describe`|  Display a VM instance's details.|
-|`gcloud compute instances list`|  List all VM instances in a project.|
 |`gcloud compute disks snapshot`|  Create snapshot of persistent disks.|
 |`gcloud compute snapshots describe`|  Display a snapshot's details.|
 |`gcloud compute snapshots delete`|  Delete a snapshot.|
@@ -191,10 +202,9 @@ You can run a server and view it by using the port utility top right hand side.
 SDK opens in new window.  
     
 
-## Compute  
   
 
-    
+
 
 ## GSUTIL
   
