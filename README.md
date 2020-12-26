@@ -189,7 +189,12 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 You can run a server and view it by using the port utility top right hand side.   
   
 SDK opens in new window.  
+    
+
+## Compute  
   
+
+    
 
 ## GSUTIL
   
