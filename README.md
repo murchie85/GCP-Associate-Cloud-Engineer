@@ -156,7 +156,18 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 |`gcloud iam service-accounts create`| Create a service account for a project.|
 |`gcloud iam service-accounts add-iam-policy-binding`| Add an IAM policy binding to a service account.|
 |`gcloud iam service-accounts set-iam-policy-binding`| Replace existing IAM policy binding.|
-|`gcloud iam service-accounts keys list`| List a service account's keys.|  
+|`gcloud iam service-accounts keys list`| List a service account's keys.|   
+  
+## Docker and GKE  
+  
+| command      | description           |  
+| :------------- |:-------------|   
+
+|`gcloud auth configure-docker`| Register the gcloud tool as a Docker credential helper.| 
+|`gcloud container clusters create`| Create a cluster to run GKE containers. | 
+|`gcloud container clusters list`| List clusters for running GKE containers. | 
+|`gcloud container clusters get-credentials`| Update kubeconfig to get kubectl to use a GKE cluster.| 
+|`gcloud container images list-tags`| List tag and digest metadata for a container image.| 
   
 
 |gutils  | command |  
