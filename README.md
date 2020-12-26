@@ -7,7 +7,8 @@
 - [Summary](#Summary)  
 - [Exam Domains](#Exam-Domains)   
 - [Account Setup](#Account-Setup)  
-- [Shell](#Shell)  
+- [Shell Overview](#Shell)
+	- [Global Flags](#Global-Flags)  
 - [Data Flows](#Data-Flows)  
 - []()  
 - []()  
@@ -145,7 +146,7 @@ To be extra safe specifiy project name every time:
 `gcloud --project myprojectID compute instances list`  
     
 
-## Global Flags  
+## Global Flags  and setting
   
 
 `--help`  
@@ -168,7 +169,10 @@ Always set values using set, i.e. `gcloud config set <property>  <value>  `
 `gcloud config set compute/region`  to replace `--region myregion`  
 **note we need to say compute and region**  
   
-    
+**get**  `gcloud config get <property> <value>  `  
+**set**  `gcloud config set <property> <value>  `  
+**Unset** `gcloud config unset <property> `  
+
 
 ## General  
 
