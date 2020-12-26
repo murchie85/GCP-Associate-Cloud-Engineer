@@ -133,11 +133,19 @@ For free tier,
 
 Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)  
   
-`gcloud help`  
+| gcloud      | command           | gutils  | command |
+| ------------- |:-------------| :-----------| :-----------|
+| help | `gcloud help` |  |    |
+| help | `cloudshell help`   |  |    |
+| list projects| gcloud projects list  |  |    |
+|  |  |  |    |
+
+
+   
   
-`cloudshell help`  
+`dl file` to doownload a file.  
   
-`dl file` to doownload.   
+
   
 You can run a server and view it by using the port utility top right hand side.   
   
