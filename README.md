@@ -135,21 +135,23 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
   
 | cloudshell      | command           | 
 | ------------- |:-------------| 
-| help | `gcloud help` | 
-| help | `cloudshell help`   | 
-| list projects| `gcloud projects list`  | 
-|  |  |  |    |
+| list projects| `gcloud projects list`  |  
+| set project | `gcloud config set project` | 
+| showconfig | `gcloud config list`  |
+| Install specific components | `gcloud components install` |
+| show current env details | `gcloud info`  |
+|Define a property (like compute/zone) for the current configuration| `gcloud config set`
   
 
 
 |gutils  | command |  
 |:-----------| :-----------|
-|copy file  | gsutil cp Desktop/kitten.png gs://my-awesome-bucket   | 
+|copy file  | `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | 
 |list bucket contents | `gsutil ls gs://my-awesome-bucket`   | 
 |list bucket conent details | `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  
   
 
-     
+
 `dl file` to doownload a file.  
   
 
