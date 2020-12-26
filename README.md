@@ -181,13 +181,6 @@ Persistent 5gb volume  but VM is ephemeral (reset 20 mins after session end.)
 |`gcloud compute snapshots delete`|  Delete a snapshot.|
 |`gcloud compute ssh`|  Connect to a VM instance by using SSH.  |
   
-
-|gutils  | command |  
-|:-----------| :-----------|
-| `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | copy file  |
-| `gsutil ls gs://my-awesome-bucket`   | list bucket contents |
-| `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  list bucket conent details |  
-
   
 
 
@@ -211,6 +204,10 @@ SDK opens in new window.
 |`gsutil mb `| make bucket|  
 |`gsutil mb --help`| make bucket help  |  
 |`gsutil mb -l EUROPE-WEST2 gs://mcmurchie_london_bucket` | create bucket in london with name|  
+| `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | copy file  |
+| `gsutil ls gs://my-awesome-bucket`   | list bucket contents |
+| `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  list bucket conent details |  
+
 
 
 # Data Flows   
