@@ -206,6 +206,8 @@ SDK opens in new window.
 |`gsutil mb --help`| make bucket help  |  
 |`gsutil mb -l EUROPE-WEST2 gs://mcmurchie_london_bucket` | create bucket in london with name|  
 | `gsutil cp Desktop/kitten.png gs://my-awesome-bucket`   | copy file into bucket  |
+| `gsutil cp -r x y `   | copy recursively |
+| `gsutil cp x/** y `   | copy all contents to root as flat |
 | `gsutil ls -l gs://my-awesome-bucket/kitten.png`   |  list bucket conent details |  
 |`gsutil label get gs://mcmurchies_london_bucket1` | get **labels** for bucket |  
 |`gsutil label set mylabelsfile.json gs://my_bucket/` | set label on bucket from file |   
