@@ -194,7 +194,13 @@ SDK opens in new window.
 ## GSUTIL
   
 [creatingBuckets](https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-gsutil)  
-[storageLocations](https://cloud.google.com/storage/docs/locations)  
+[storageLocations](https://cloud.google.com/storage/docs/locations)   
+  
+
+`ch` means change  
+`**` means all but as flat hiearchy  
+`acl` means access control list  
+
 
 | command      | description           |  
 | :------------- |:-------------|    
@@ -214,6 +220,7 @@ SDK opens in new window.
 |`gsutil label ch -l "function:learning" gs://my-bucket/` | append label to bucket|
 |`gsutil versioning get gs://my-bucket` | get bucket version|
 |`gsutil versioning set on gs://my-bucket` | Enable Bucket Versioning|    
+|`gsutil acl ch -u AllUsers:R gs://my-bucket/stuff.jpg`| change permisions|
 
 # Data Flows   
   
