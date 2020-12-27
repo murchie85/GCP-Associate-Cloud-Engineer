@@ -891,7 +891,10 @@ When does it happen? (decisions)
 **Seperate From AutoScaling**   
     
 
-[READ MORE HERE](https://cloud.google.com/load-balancing/docs/load-balancing-overview)
+[READ MORE HERE](https://cloud.google.com/load-balancing/docs/load-balancing-overview)  
+**Spend time on http load balancer**  
+  
+#### Why get data to the right place?  
 
 - They work well together but aren't the same.  
 - We care about getting data to the right place for:  
@@ -904,15 +907,40 @@ When does it happen? (decisions)
 
 **Cloud Load balancer**  
   
+Is the generic term but encompasses the following:  
+  
+
 - internal
 - external 
 - layer 4  
 - layer 7  
 - http/https with url map
- 
+   
+## Unicast vs AnyCast  
+  
 
+These are **routing schemes** and determine how data gets from A to B  
+  
+![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.globaldots.com%2Fblog%2Fneed-know-anycast-routing&psig=AOvVaw1heyj1nv8t_lsL4msY43c-&ust=1609186159545000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPiB6N777u0CFQAAAAAdAAAAABAT)  
+   
+- Unicast says there is only one unique device send it there.  
+- Anycast says send it to the nearest if pref.  
 
+![](https://techiemaster.files.wordpress.com/2016/08/slide_6.jpg)
 
+  
+#### Layer 4 vs Layer 7  
+  
+**Layer 4**  
+
+- TCP the primary protocal to send data  
+	- soley works on ip addresses 
+	-http/https is too high for this level
+  
+**Layer 7**  
+  
+- HTTP and HTTPS  
+	- These know about URL and paths.  
 
 # Challenges  
     
