@@ -16,6 +16,7 @@
 	- [looking at ssh](#Looking-at-the-SSH)
 - [Data Flows](#Data-Flows)  
 - [Security](#Security)  
+- [IAM Overview](#IAM-Overview)
 - [Challenges](#Challenges)  
 
 ## Summary
@@ -614,9 +615,47 @@ Examples:
 |`roles/appengine.codeViewer`|RO access app config/settings/deployed source| 
   
    
+    
+## IAM Overview
+
+    
+[Navigation](#Navigation)   
+    
+### Members 
+
+- `users` , `service-accounts`, `groups` or `domain`  
+- `Group` should be default for best practice.  
+- It is a known google identity  
+- Each has a gmail account  
+- Can Be:
+	- **user:** specific google account
+	- G Suite, Cloud identity, gmail, or Validated email.  
+	- **Service account** for apps and services  
+	- **group** of users and service accounts. Mix and match (you can give a group of developers access instead of each one.) 
+	- **domain** whole domain managed by G-Suite or google identity  
+	- **allAuthenticatedUsers** i.e. it is public, any google account needed.  
+	- **allUsers** public and no account needed.  
+
+### Group  
+  
+**group** of users and service accounts.  
+
+- Mix and match.  
+- Every group has an email address.  
+    
+Examples: developers@mycompany.com  
+  
+- Don't use the email to log in.   
+- Use group for **EVERYTHING**   
+  
+Groups can even be used to manage a project within an organisation.    
+To manage the groups in an org, you can nest them such as  :  
+  
+All staff Group, includes all sub groups.    
+Engineer group includes developer group and devops group.  
   
 
-
+    
 
 # Challenges  
     
