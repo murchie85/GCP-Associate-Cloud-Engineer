@@ -821,7 +821,7 @@ You need `billing account user` at billing account level AND `project billing ma
 - `Billing administrator` of org's billing account contacts google support to determine eligibility and apply.  
 	- depends on how old your account is, how much you spend and what country you are in.  
 
-### Scenario  
+### Billing Scenario  
   
 Small-medium enterprise with preference to centralised control  
     
@@ -830,6 +830,17 @@ Small-medium enterprise with preference to centralised control
 |CEO|  manage payment instructions, view/approve invoices| `billing account administrator` |  
 |CTO|set budget alerts, view spends, create new billable projects| `billing account administrator` `project creator` |  
 |Dev teams|None| None| 
+  
+
+Small-medium enterprise with preference to delegated authority  
+    
+| UserType      | Billing Activities           |  Billing Cloud IAM roles |
+| :------------- |:-------------|:-------------| 
+|CEO|  manage payment instrument, delegate authority| `billing account administrator` |  
+|CTO|set budget alerts, view spends| `billing account administrator`  |  
+|Accounts Payable |View and approve invoices| `billing account viewer`|  
+|Dev teams|create new billable projects| `billing account user` `project creator` | 
+
 
 
 
