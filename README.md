@@ -591,16 +591,7 @@ Examples:
 `pubsub.topics.publish`    
   
 
-| Role      | description           |  
-| :------------- |:-------------|    
-|`roles/appengine.appAdmin`|  Admin - read,write, modify|  
-|`roles/appengine.serviceAdmin`| RO for app config/settings, Write to module level and version settings, can't deploy new ver| 
-|`roles/appengine.deployer`| RO access app config/settings,WO create new ver, can't mod existing vers, only delete no traffic ones| 
-|`roles/appengine.appViewer`|RO access app config/settigs|
-|`roles/appengine.codeViewer`|RO access app config/settings/deployed source| 
   
-   
-
   
 ## Roles  
     
@@ -613,6 +604,17 @@ Examples:
 - **predefined roles** -- gives you granular control and Access  
 	eg. roles/bigquery.dataeditor, roles/pubsub.subscriber  
 
+  
+| Role      | description           |  
+| :------------- |:-------------|    
+|`roles/appengine.appAdmin`|  Admin - read,write, modify|  
+|`roles/appengine.serviceAdmin`| RO for app config/settings, Write to module level and version settings, can't deploy new ver| 
+|`roles/appengine.deployer`| RO access app config/settings,WO create new ver, can't mod existing vers, only delete no traffic ones| 
+|`roles/appengine.appViewer`|RO access app config/settigs|
+|`roles/appengine.codeViewer`|RO access app config/settings/deployed source| 
+  
+   
+  
 
 
 
