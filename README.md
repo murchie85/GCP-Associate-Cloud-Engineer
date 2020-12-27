@@ -25,7 +25,8 @@
 	- [Group](#Group)
 	- [Policies](#Policies)
 - [IAM Overview](#IAM-Overview)  
-- [Billing Access Control](#Billing-Access-Control)
+- [Billing Access Control](#Billing-Access-Control)  
+- [Networking](#Networking)
 - [Challenges](#Challenges)  
 
 ## Summary
@@ -36,6 +37,7 @@ GCP ACE is similar but slightly harder than the AWS SysOps (the hardest of the A
   
 - Always plan something through before building it out - do a high level flow on paper.  
 - Read and learn different roles and permission types.  
+- Need to do some security practice (make a lab , use gcloud )  
 
   
 ### Google Job Role Description for ACE 
@@ -842,6 +844,36 @@ Small-medium enterprise with preference to delegated authority
 |Dev teams|create new billable projects| `billing account user` `project creator` | 
 
 
+
+# Networking
+  
+
+    
+[Navigation](#Navigation)   
+    
+ 
+- *Software-defined networking* (SND)  
+- Learn OSI model for basics  
+- Transport vs app layer (4 vs 7)  
+- Only setting the stage for routing tables /routes  
+- Meant to make you think about the data journey.  
+  
+
+Deciding where data should go next.  
+About making many local decisions where to go next.  
+Devices don't have a globals perspective.  
+  
+
+When does it happen? (decisions)  
+   
+- On the way to googles network  
+- On the way to the right resource  
+- on the way from one resource to another  
+  
+## To Google's Network (Premium Routing Tier)    
+  
+![](images/VPCprem.png)
+  
 
 
 
