@@ -967,8 +967,49 @@ This is why premium routing is better.
       
 [Navigation](#Navigation)   
    
-    
+
 ## VCP routing  
+  
+
+- Global resource it's a SDN space  
+- It defines overall network  
+- Defines resource to resource, outside connections and peers  
+
+- You need **subnets** to divide up the space  
+	- Subnets are regional  
+	- A single resource can be used by multiple zones in a region  
+	- All subnets can communicate no need for VPN they are global  
+	- must consider charges though  
+- **Routes** (global) define the next hop for traffic based on destimation IP  
+	- Routes are **global** 
+	- Apply by **instance level** tags, **not** by Subnets  
+	- Routes with tag `public-internet-access` this only applies to instances with these tags.  
+		- instances without these tags can't flow, and thus are private and cant get on the net to internet gateway.  
+	- Having a route only means it **can** connnect
+- **Firewall rules** to consider
+	- Firewall rules defined at level of **VPC globally**
+	- apply by **instance-level tags** or **service account**  
+	- If a paticular instance is using a service account that can be a way to turn on firewall rule 
+	- **default** rules are restricted inbound and permissive outbound.  
+  
+## IP & CIDRs  
+  
+- IP is a dotted quad, abc.def.ghi.jkl from 0-255 
+- CIDR block is a group of IP addresses 
+	- <IP>/xy notation  
+	- Turn IP address into a 32-bit binary number  
+	- e.g. `10.10.0.254` -> `00001010 00001010 00000000 11111110`  
+	- /xy in CIDR notation locks highest (left most ) bits in IP address (0-32)  
+
+- `abc.def.ghi.jkl/32` is single IP address because all 32 bits are locked.  
+- `abc.def.ghi`.jkl/24 is 256 IP ddress because last 8 bits can vary (jkl) can vary.  
+- `0.0.0.0`/0 means "any IP address" because no bits are locked.  
+    
+
+- RFC1918 defines private (i.e. non-internet) address ranges you can use.  
+	- `10.0.0.0/8` , `172.16.0.0/12`, and `192.168.0.0/16`  
+	
+
 
 
 
