@@ -873,15 +873,14 @@ When does it happen? (decisions)
   
 ## To Google's Network (Premium Routing Tier)    
   
-![](images/VPCprem.png)  
+![](https://cdn.geekwire.com/wp-content/uploads/2017/08/Screen-Shot-2017-08-22-at-6.21.19-PM-630x384.png)  
   
 
 - Hot potato  not our problem, 
 - cold potato give it here, we will take it.  
 - Faster connection speed.  
 - Optimal CDN  
-  
-![](images/vpc2.png)  
+   
   
 # Load Balancing
   
