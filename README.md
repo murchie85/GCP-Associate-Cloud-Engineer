@@ -966,6 +966,11 @@ This is why premium routing is better.
   
       
 [Navigation](#Navigation)   
+  
+- Create Project using CLI  
+- Enable GCE API  
+  
+
    
 
 ## VCP routing  
@@ -1093,3 +1098,85 @@ echo "Phew!  Work completed at $(date)" >"${worker_log_file}"
 echo "Copying the log file to the bucket..."
 gsutil cp "${worker_log_file}" "${worker_log_bucket}"
 ```
+
+
+## Second Challenge VPC  
+  
+**Requirements**   
+  
+1. Two tier setup, front end abd backend  
+2. Each Autoscaled accross 2+ zones  
+3. Use ping to represent traffic ICMP  
+  
+**Frontend**  
+ 
+1. Accepts incoming traffic from internet 
+2. Can connect outbound to backend and internet 
+ 
+**backend**  
+  
+1. Only accepts incoming from frontend or other backend 
+2. No outbound anywhere (except other backend)  
+  
+- All done via firewall rules based on service accounts (except open-ssh-tag)  
+
+Validation  
+  
+Cloudshell on my terminal:  
+  
+- ping front end
+- cannot ping backend  
+ 
+When SSH into front end  
+  
+- can ping backend instances (including cross-zone)
+- can ping google.com 
+   
+when SSH into backend  
+  
+- Not ping FE
+- Not ping google.com  
+- ping other backend.  
+  
+**Plan**  
+ 
+
+Order: Project, role creation, service account, VPC, firewallrules, tempalates, migs, validate  
+
+- Create a project  
+- Enable GCE  
+- Create FE & BE service account
+	- combine roles into custom role
+	- Log writer 
+	- metric writer
+- Create a VPC  
+  - VPC FWR for FE and BE based on service account name 
+- Create instance template for FE 
+- Create instance template for BE 
+- Create MIG for FE and BE respectively
+	- Associate VPC
+	- Use respective template 
+
+
+**Action Sequence**  
+
+ Console first  
+
+1. New project creation VPCPlayground
+2. Custom role for logs and monitoring metrics writer 
+	- General availability release ver  
+3. Service accounts 
+	- FE_Cluster_serviceAccount
+	- BE_Cluster_serviceAccount
+		- add custom role
+		- no user to perform actions as this service account  
+4. Networking VPC
+- Enable compute engine 
+  
+gcloud way  
+```
+gcloud projects list
+gcloud services list --available
+gcloud services enable SERVICE_NAME
+``` 
+
