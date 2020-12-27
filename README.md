@@ -26,7 +26,8 @@
 	- [Policies](#Policies)
 - [IAM Overview](#IAM-Overview)  
 - [Billing Access Control](#Billing-Access-Control)  
-- [Networking](#Networking)
+- [Networking](#Networking)  
+	-[Load Balancing](#Load-Balancing)
 - [Challenges](#Challenges)  
 
 ## Summary
@@ -872,8 +873,34 @@ When does it happen? (decisions)
   
 ## To Google's Network (Premium Routing Tier)    
   
-![](images/VPCprem.png)
+![](images/VPCprem.png)  
   
+
+- Hot potato  not our problem, 
+- cold potato give it here, we will take it.  
+- Faster connection speed.  
+- Optimal CDN  
+  
+!{](images/vpc2.png)  
+  
+# Load Balancing
+  
+    
+[Navigation](#Navigation)   
+  
+
+**Seperate From AutoScaling**   
+  
+
+- They work well together but aren't the same.  
+- We care about getting data to the right place for:  
+	- Latency reduciton
+	- Load balancing
+	- System design  
+  
+
+
+ 
 
 
 
