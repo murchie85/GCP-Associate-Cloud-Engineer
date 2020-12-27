@@ -1004,11 +1004,19 @@ This is why premium routing is better.
 - `abc.def.ghi.jkl/32` is single IP address because all 32 bits are locked.  
 - `abc.def.ghi`.jkl/24 is 256 IP ddress because last 8 bits can vary (jkl) can vary.  
 - `0.0.0.0`/0 means "any IP address" because no bits are locked.  
-    
+  
+
+**formula** in progress  
+```
+32 - x = Y     
+no Ips = 2**Y  
+``` 
+
+
 
 - RFC1918 defines private (i.e. non-internet) address ranges you can use.  
 	- `10.0.0.0/8` , `172.16.0.0/12`, and `192.168.0.0/16`  
-	
+
 
 
 
