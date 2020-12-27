@@ -13,13 +13,18 @@
 	- [GSUTIL Global Storage](#GSUTIL-Global-Storage)	
 	- [Configurations](#Configurations)
 - [Compute](#Compute)  
+	- [looking at ssh](#Looking-at-the-SSH)
 - [Data Flows](#Data-Flows)  
-- []()  
+- [Challenges](#Challenges)  
 - []()  
 
 ## Summary
 
-GCP ACE is similar but slightly harder than the AWS SysOps (the hardest of the AWS associate exams).  
+GCP ACE is similar but slightly harder than the AWS SysOps (the hardest of the AWS associate exams).    
+  
+**TIPS**  
+  
+- Always plan something through before building it out - do a high level flow on paper.  
   
 ### Google Job Role Description for ACE 
   
@@ -410,8 +415,12 @@ Give it a seed for password (it sets up a keychain)
 - curl api.ipify.org will give similar addresses between shell and compute   
   
 
-### Looking at the SSH  
+### Looking at the SSH
    
+  
+[Navigation](#Navigation)   
+  
+
 
 Outside SSH in our shell terminal.  
 ```
@@ -431,6 +440,17 @@ By heading the google_compute_engine file
 
 - public key says who we are.    
     
+## MetaData  
+  
+
+[Navigation](#Navigation)   
+  
+
+
+**Avdanced options** if you want to set metadata in console when creating a VM.  
+Note the key:value for storage, needs the gs:// prefex.   
+    
+Continuing on from earlier:  
 
 run inside vm  
 
@@ -481,7 +501,27 @@ once set up, the control plane outage wouldn't affect the VMs as they have the o
   
 this is why if outage you may not be able to delete, stop , start but it will still be fine.  
   
+**metadata service**  
   
+The VM communicates with metadata service on the host machine (all VMs will look at metadataservice)  
+It grabs what it needs to get started.  
+SSH keys has a watch on the service to get the keys from metadata
+OSBoot and startupscripts get info from metadata too.  
+
+**syslog** and **stackdriver**  
+    
+os info  
+Stackdriver will forward these logs.   
+Stackdriver will also forward logs the hypervisor can't see such as memory and other metrics.  
+  
+
+  
+
+  
+
+
+
+
 
   
 
@@ -515,4 +555,74 @@ Example for cloud lab
   
 
 
+ 
+
+# Challenges  
   
+## First Challenge  
+  
+**Requirements**   
+  
+1. Create a brand new project 
+2. GCE instance to run a script [here](https://raw.githubusercontent.com/ACloudGuru/gcp-cloud-engineer/master/compute-labs/worker-startup-script.sh)  
+3. Script below, It installs stackdriver  
+4. Create a new bucket  
+5. Log file should land in the bucket (in the script)  
+  
+Try to do this all via script as stretch goal.  
+
+```shell 
+#! /bin/bash
+
+#
+# Echo commands as they are run, to make debugging easier.
+# GCE startup script output shows up in "/var/log/syslog" .
+#
+set -x
+
+
+#
+# Stop apt-get calls from trying to bring up UI.
+#
+export DEBIAN_FRONTEND=noninteractive
+
+
+#
+# Make sure installed packages are up to date with all security patches.
+#
+apt-get -yq update
+apt-get -yq upgrade
+
+
+#
+# Install Google's Stackdriver logging agent, as per
+# https://cloud.google.com/logging/docs/agent/installation
+#
+curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
+bash install-logging-agent.sh
+
+
+#
+# Install and run the "stress" tool to max the CPU load for a while.
+#
+apt-get -yq install stress
+stress -c 8 -t 120
+
+
+#
+# Report that we're done.
+#
+
+# Metadata should be set in the "lab-logs-bucket" attribute using the "gs://mybucketname/" format.
+log_bucket_metadata_name=lab-logs-bucket
+log_bucket_metadata_url="http://metadata.google.internal/computeMetadata/v1/instance/attributes/${log_bucket_metadata_name}"
+worker_log_bucket=$(curl -H "Metadata-Flavor: Google" "${log_bucket_metadata_url}")
+
+# We write a file named after this machine.
+worker_log_file="machine-$(hostname)-finished.txt"
+echo "Phew!  Work completed at $(date)" >"${worker_log_file}"
+
+# And we copy that file to the bucket specified in the metadata.
+echo "Copying the log file to the bucket..."
+gsutil cp "${worker_log_file}" "${worker_log_bucket}"
+```
