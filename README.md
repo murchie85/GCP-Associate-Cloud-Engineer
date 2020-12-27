@@ -14,9 +14,18 @@
 	- [Configurations](#Configurations)
 - [Compute](#Compute)  
 	- [looking at ssh](#Looking-at-the-SSH)
+	- [MetaData](#MetaData)
 - [Data Flows](#Data-Flows)  
+- [Scaling](#Scaling)
 - [Security](#Security)  
-- [IAM Overview](#IAM-Overview)
+	-[Permissions](#Permissions)
+	- [Roles](#Roles)
+	- [IAM Overview](#IAM-Overview)
+	- [Members](#Members)
+	- [Group](#Group)
+	- [Policies](#Policies)
+- [IAM Overview](#IAM-Overview)  
+- [Billing Access Control](#Billing-Access-Control)
 - [Challenges](#Challenges)  
 
 ## Summary
@@ -444,7 +453,7 @@ By heading the google_compute_engine file
 
 - public key says who we are.    
     
-## MetaData  
+## MetaData
   
 
 [Navigation](#Navigation)   
@@ -522,11 +531,6 @@ Stackdriver will also forward logs the hypervisor can't see such as memory and o
   
 
   
-
-
-
-
-
   
 
 
@@ -560,7 +564,7 @@ Example for cloud lab
 
 
  
-# Scaling   
+# Scaling
   
   
 [Navigation](#Navigation)   
@@ -579,7 +583,7 @@ Example for cloud lab
 [Navigation](#Navigation)   
    
   
-## Permissions  
+## Permissions
   
 Follows form of *service.resource.verb*  
   
@@ -594,9 +598,12 @@ Examples:
 
   
   
-## Roles  
+## Roles
     
-
+  
+[Navigation](#Navigation)   
+   
+  
 - Collection of permissions 
 - **Primative roles** (often too broad defined at project level)
 	- Viewer **role** is read only  
@@ -618,11 +625,21 @@ Examples:
     
 ## IAM Overview
 
+  
+[Navigation](#Navigation)   
+   
+        
+  
+
+[using IAM securely](https://cloud.google.com/iam/docs/using-iam-securely)  
+[IAM FAQ](https://cloud.google.com/iam/docs/faq)   
+
+    
+### Members
     
 [Navigation](#Navigation)   
+   
     
-### Members 
-
 - `users` , `service-accounts`, `groups` or `domain`  
 - `Group` should be default for best practice.  
 - It is a known google identity  
@@ -655,7 +672,122 @@ All staff Group, includes all sub groups.
 Engineer group includes developer group and devops group.  
   
 
+### Policies
+  
+
+Resources, roles and members are tied in via a policy.  
+  
+- A policy binds members to roles for some scope of resources.  
+- Answers: **who can do what to which thing(s)**  
+- Attached to some level in resource hierarchy 
+	- Organisation, folder, project, resource  
+- Roles and members listed in policy, but resource identified by attachment. 
+- **Allow only** you can never deny someone/something with a policy.  
+- Child policy can't restrict access granted at a higher level.  
+- This is why you need to be careful, use folders and plan it.  
+  
+#### Policy example    
     
+[link](https://cloud.google.com/iam/docs/granting-changing-revoking-access)  
+  
+
+- Has two bindings 
+- first part (owner) means he is owner for anything he is attached to.  
+- attaching to a folder that contains a lot of projects gives bob a lot of power. 
+- but to one small resource is much less power.  
+
+- Second binding, grants compute network viewer role to a bunch of members, user, group, domain and service account.  
+- regardless of which project is using the service account.  
+  
+
+- One policy per resource  
+- **USE GROUPS INSTEAD** of members.  
+
+
+```json  
+
+{
+	"bindings":[
+		{
+			"role": "roles/owner",
+			"members": ["user:bob@example.com"]
+		},
+		{
+			"role": "roles/compute.networkViewer",
+			"members": [
+				"user:alice@example.com",
+				"group:admins@example.com",
+				"domain.example2.com",
+				"serviceAccount:my-other-app@appspot.gserviceaccount.com"
+
+
+			]
+		}
+
+	]
+
+}
+
+
+```
+  
+- Takes 60 second to 7 mins to propogate.  
+  
+### Managing Polciy Bindings  
+  
+you could get and set iam policy  
+  
+`get-iam-policy`  edit the JSON/YAML
+`set-iam-policy`  
+  
+**Dont** do this - in general use the following:  
+  
+`add-iam-policy-binding` and `remove-iam-policy-binding`  
+  
+
+**example**  
+  
+```shell
+gcloud [GROUP] add-iam-policy-binding [RESOURCE-NAME] --role [ROLE-ID-TO-GRANT] --member user:[USER-EMAIL]
+```
+  
+```shell
+gcloud [GROUP] remove-iam-policy-binding [RESOURCE-NAME] --role [ROLE-ID-TO-GRANT] --member user:[USER-EMAIL]
+```
+  
+  
+- These are atomic operations 
+- Fine grain and easier to control.  
+- Avoid race condition - can happen similtaneously  
+  
+For example, if two people do a get and set on the iam policy then only one of them will win to make the change.  
+Also Get and set can be sending a lot of info, and take a long time to process.  
+  
+Another example:  
+  
+```  
+gcloud compute instances add-iam-policy-binding myhappyvm --role roles/compute.instanceAdmin
+-- member user:murchie85@gmail.com  
+
+```  
+    
+  
+# Billing Access Control  
+  
+    
+[Navigation](#Navigation)   
+     
+  
+    
+![billing](images/billing.png)
+
+- Type of resource living outside of project.  
+- Can belong to an org
+	- inherits org-level IAM policies.  
+- Can be linked to projects  
+	- Doesn't own the project or affect it.  
+
+
 
 # Challenges  
     
