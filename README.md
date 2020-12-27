@@ -921,7 +921,7 @@ Is the generic term but encompasses the following:
 
 These are **routing schemes** and determine how data gets from A to B  
   
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.globaldots.com%2Fblog%2Fneed-know-anycast-routing&psig=AOvVaw1heyj1nv8t_lsL4msY43c-&ust=1609186159545000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPiB6N777u0CFQAAAAAdAAAAABAT)  
+![](https://s-media-cache-ak0.pinimg.com/originals/4f/b4/1b/4fb41bf277e86fad4cafae48462fb015.jpg)  
    
 - Unicast says there is only one unique device send it there.  
 - Anycast says send it to the nearest if pref.  
@@ -929,7 +929,7 @@ These are **routing schemes** and determine how data gets from A to B
 ![](https://techiemaster.files.wordpress.com/2016/08/slide_6.jpg)
 
   
-#### Layer 4 vs Layer 7  
+## Layer 4 vs Layer 7  
   
 **Layer 4**  
 
