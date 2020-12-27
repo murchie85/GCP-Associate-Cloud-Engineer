@@ -15,8 +15,8 @@
 - [Compute](#Compute)  
 	- [looking at ssh](#Looking-at-the-SSH)
 - [Data Flows](#Data-Flows)  
+- [Security](#Security)  
 - [Challenges](#Challenges)  
-- []()  
 
 ## Summary
 
@@ -570,7 +570,32 @@ Example for cloud lab
 [Autoscaling groups of instances](https://cloud.google.com/compute/docs/autoscaler/)  
   
 
-
+# Security  
+  
+  
+[Navigation](#Navigation)   
+   
+  
+## Permissions  
+  
+Follows form of *service.resource.verb*  
+  
+Usually correspends to the rest API.  
+  
+Examples:  
+  
+`pubsub.subscriptions.consume`  
+  
+`pubsub.topics.publish`  
+  
+## Roles  
+  
+- Collection of permissions 
+- **Primative roles** (often too broad defined at project level)
+	- Viewer **role** is read only  
+	 - Editor **role** can view and change
+	 - Owner **role** can also controll acces & billing   
+- **predefined roles** -- gives you granular control and access
 
 # Challenges  
     
