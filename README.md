@@ -881,7 +881,7 @@ When does it happen? (decisions)
 - Faster connection speed.  
 - Optimal CDN  
   
-!{](images/vpc2.png)  
+![](images/vpc2.png)  
   
 # Load Balancing
   
