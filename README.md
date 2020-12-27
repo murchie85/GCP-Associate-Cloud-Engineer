@@ -890,16 +890,26 @@ When does it happen? (decisions)
   
 
 **Seperate From AutoScaling**   
-  
+    
+
+[READ MORE HERE](https://cloud.google.com/load-balancing/docs/load-balancing-overview)
 
 - They work well together but aren't the same.  
 - We care about getting data to the right place for:  
 	- Latency reduciton
+		- **cross region loadbalancing** 
+		- with global anycastIPs
 	- Load balancing
 	- System design  
   
 
-
+**Cloud Load balancer**  
+  
+- internal
+- external 
+- layer 4  
+- layer 7  
+- http/https with url map
  
 
 
