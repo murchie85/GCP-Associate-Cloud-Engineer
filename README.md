@@ -810,7 +810,27 @@ These two roles allow a user to create new projects linked to a billing account 
 |`billing account administrator`|manage but not create| billing account |  
 |`billing account user`|link projects to billing accounts | billing account| 
 |`billing account viewer`| View billing acc cost info and transactions | billing accounts|  
-|`project billing manager`| link/unlink project from a billing account| project|   
+|`project billing manager`| link/unlink project from a billing account| project|    
+  
+You need `billing account user` at billing account level AND `project billing manager` at project level to make the link.  
+  
+### Monthly invoiced billing  
+  
+- monthly invoice
+- can increase project and quota limits  
+- `Billing administrator` of org's billing account contacts google support to determine eligibility and apply.  
+	- depends on how old your account is, how much you spend and what country you are in.  
+
+### Scenario  
+  
+Small-medium enterprise with preference to centralised control  
+    
+| UserType      | Billing Activities           |  Billing Cloud IAM roles |
+| :------------- |:-------------|:-------------| 
+|CEO|  manage payment instructions, view/approve invoices| `billing account administrator` |  
+|CTO|set budget alerts, view spends, create new billable projects| `billing account administrator` `project creator` |  
+|Dev teams|None| None| 
+
 
 
 
