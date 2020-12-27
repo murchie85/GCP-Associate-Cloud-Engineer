@@ -25,6 +25,8 @@ GCP ACE is similar but slightly harder than the AWS SysOps (the hardest of the A
 **TIPS**  
   
 - Always plan something through before building it out - do a high level flow on paper.  
+- Read and learn different roles and permission types.  
+
   
 ### Google Job Role Description for ACE 
   
@@ -586,16 +588,33 @@ Examples:
   
 `pubsub.subscriptions.consume`  
   
-`pubsub.topics.publish`  
+`pubsub.topics.publish`    
+  
+
+| Role      | description           |  
+| :------------- |:-------------|    
+|`roles/appengine.appAdmin`|  Admin - read,write, modify|  
+|`roles/appengine.serviceAdmin`| RO for app config/settings, Write to module level and version settings, can't deploy new ver| 
+|`roles/appengine.deployer`| RO access app config/settings,WO create new ver, can't mod existing vers, only delete no traffic ones| 
+|`roles/appengine.appViewer`|RO access app config/settigs|
+|`roles/appengine.codeViewer`|RO access app config/settings/deployed source| 
+  
+   
+
   
 ## Roles  
-  
+    
+
 - Collection of permissions 
 - **Primative roles** (often too broad defined at project level)
 	- Viewer **role** is read only  
 	 - Editor **role** can view and change
 	 - Owner **role** can also controll acces & billing   
-- **predefined roles** -- gives you granular control and access
+- **predefined roles** -- gives you granular control and Access  
+	eg. roles/bigquery.dataeditor, roles/pubsub.subscriber  
+
+
+
 
 # Challenges  
     
