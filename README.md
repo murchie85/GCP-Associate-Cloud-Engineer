@@ -787,6 +787,32 @@ gcloud compute instances add-iam-policy-binding myhappyvm --role roles/compute.i
 - Can be linked to projects  
 	- Doesn't own the project or affect it.  
 
+**A single project only has a single billing account**  
+But billing account can be tied to many.  
+  
+
+**billing account user**  
+  
+The purpose is to link projects to billing accounts.  
+**Level**: **organisation** or **billing account**  
+  
+This role has restricted permissions (so can grant broadly)  
+Typically in combination with project creator.    
+
+These two roles allow a user to create new projects linked to a billing account on which the role is granted.  
+  
+### Billing Roles  
+  
+
+| Role      | purpose           |  Scope |
+| :------------- |:-------------|:-------------| 
+|`billing account creator`|  create new billing accounts| org |  
+|`billing account administrator`|manage but not create| billing account |  
+|`billing account user`|link projects to billing accounts | billing account| 
+|`billing account viewer`| View billing acc cost info and transactions | billing accounts|  
+|`project billing manager`| link/unlink project from a billing account| project|   
+
+
 
 
 # Challenges  
