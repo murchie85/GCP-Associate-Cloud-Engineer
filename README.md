@@ -941,6 +941,36 @@ These are **routing schemes** and determine how data gets from A to B
   
 - HTTP and HTTPS  
 	- These know about URL and paths.  
+  
+L4 can not route based on path.  
+  
+  
+### DNS  
+  
+- Name resolution (to ip) can be the first step in routing.  
+- Has problems  
+	- DNS only returns l4 and can't make decisions
+	- Every part of system has to be replicated in every region  
+	- Chunky - DNS query often cached and used for a huge number of client sets.  
+	- Sticky - they lock on, with TTL (time to live) and refreshing per request has a high cost. 
+	  so if TTL = Long then it could be routing to overloaded server   
+	  if TTL = short then every single connection has to do DNS lookup, slowing down. Also money cost.  
+	- Not Robust: relies on client doing the right thing, 
+		- they don't 
+		- they sometimes do the wrong thing with dns ttl, like waiting longer than they should do.  
+  
+This is why premium routing is better.    
+  
+
+# VPC  
+  
+      
+[Navigation](#Navigation)   
+   
+    
+## VCP routing  
+
+
 
 # Challenges  
     
