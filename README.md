@@ -384,10 +384,11 @@ Note free is only available in us-west
 `gcloud compute instances create --machine-type=f1-micro murchievm`  
     
 ## TL:DR  
+  
     
- Doesn't work but need to find a way to make it work:  
-
-`gcloud compute instances create --machine-type=f1-micro murchievm --region us-west2 --zone us-west2-b `
+```
+gcloud compute instances create my-lovelyVM --zone=us-west2-b --machine-type=f1-micro
+```
   
   
 **OUTPUT**  
