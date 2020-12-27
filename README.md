@@ -385,7 +385,7 @@ Note free is only available in us-west
     
 ## TL:DR  
   
-    
+
 ```
 gcloud compute instances create my-lovelyVM --zone=us-west2-b --machine-type=f1-micro
 ```
@@ -557,9 +557,26 @@ Example for cloud lab
 
 
  
+# Scaling   
+  
+  
+[Navigation](#Navigation)   
+    
+- Instance templates(like AMIs) are useful than manually creating everytime  
+- Managed instance groups better than unamanged because less restrictions  
+   
+   
+[MIGS and instance grous](http://cloud.google.com/compute/docs/instance-groups)  
+[Autoscaling groups of instances](https://cloud.google.com/compute/docs/autoscaler/)  
+  
+
+
 
 # Challenges  
+    
+[Navigation](#Navigation)   
   
+    
 ## First Challenge  
   
 **Requirements**   
