@@ -1175,8 +1175,40 @@ Order: Project, role creation, service account, VPC, firewallrules, tempalates, 
   
 gcloud way  
 ```
+gcloud config list 
+gcloud config set  //project
+  
+
 gcloud projects list
 gcloud services list --available
 gcloud services enable SERVICE_NAME
-``` 
+```   
+    
+- Create vpc challenge-vpc
+- New subnet challenge-subnet
+	- europe-west2
+	- 10.0.0.0/9 
+	- global but not needed
+  
+gcloud command
+```
+gcloud compute networks create vpcchallenge --project=vpcplayground --description=challenge\ vpc\  --subnet-mode=custom --mtu=1460 --bgp-routing-mode=regional
 
+gcloud compute networks subnets create challengesubnet --project=vpcplayground --range=10.0.0.0/9 --network=vpcchallenge --region=europe-west2
+```
+  
+**Firewall Rules**   
+  
+- fe-allow-in-allow-out-allow-outinternal
+- direction = egress
+- on match = allow
+- targets = FE_Cluster_serviceAccount
+- ipfilter = 0.0.0.0/0
+- specified ports = icmp
+  
+```
+gcloud compute --project=vpcplayground firewall-rules create fe-allow-in-allow-out-allow-outinternal --description="Allows in and outbound" --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0 --target-service-accounts=fe-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
+```
+   
+fe-allow-outbound  
+  
