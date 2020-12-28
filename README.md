@@ -1198,8 +1198,10 @@ gcloud compute networks subnets create challengesubnet --project=vpcplayground -
 ```
   
 **Firewall Rules**   
-  
-- fe-allow-in-allow-out-allow-outinternal
+
+### frontend  
+
+- fe-allow-out
 - direction = egress
 - on match = allow
 - targets = FE_Cluster_serviceAccount
@@ -1207,8 +1209,15 @@ gcloud compute networks subnets create challengesubnet --project=vpcplayground -
 - specified ports = icmp
   
 ```
-gcloud compute --project=vpcplayground firewall-rules create fe-allow-in-allow-out-allow-outinternal --description="Allows in and outbound" --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0 --target-service-accounts=fe-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
+gcloud compute --project=vpcplayground firewall-rules create fe-allow-out --description="Allow outbound  traffic to net " --direction=EGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --destination-ranges=0.0.0.0/0 --target-service-accounts=fe-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
 ```
-   
-fe-allow-outbound  
+
+### backend  
+  
+- be-allow-in-fromfe
+
+```
+gcloud compute --project=vpcplayground firewall-rules create be-allow-in-fromfe --description="Allows inbound traffic only from front end " --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0 --target-service-accounts=be-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
+
+```
   
