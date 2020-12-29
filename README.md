@@ -584,7 +584,9 @@ Example for cloud lab
   
   
 [Navigation](#Navigation)   
-   
+     
+
+- Security in subnets, firewalls on vpcs are more logically dictated in GCP rather than regionally. 
   
 ## Permissions
   
@@ -996,9 +998,17 @@ This is why premium routing is better.
 	- apply by **instance-level tags** or **service account**  
 	- If a paticular instance is using a service account that can be a way to turn on firewall rule 
 	- **default** rules are restricted inbound and permissive outbound.  
+    
+In an org you can share VPCs among multiple projects  
   
+**host project** owns the shared VPC  
+**Service projects** other projects granted access to use part/all of the VPC  
+  
+**Advantage** lets a centralised team manage security of all projects.  
+
 ## IP & CIDRs  
-  
+   
+- Google reserves 4 so minus that from number  
 - IP is a dotted quad, abc.def.ghi.jkl from 0-255 
 - CIDR block is a group of IP addresses 
 	- <IP>/xy notation  
@@ -1023,6 +1033,20 @@ no Ips = 2**Y
 	- `10.0.0.0/8` , `172.16.0.0/12`, and `192.168.0.0/16`  
 
 
+- Practice CIDR blocks   
+- /16 /24 /28 etc  
+  
+- subnet masks:  
+- CIDR /16 is the same as 255.255.0.0
+- CIDR /24 is the same as 255.255.255.0  
+- CIDR /32 is the same as 255.255.255.255  
+  
+ practice common port numbers: 
+
+- http 80 https 443 ssh 22 etc 
+  
+
+ You can always increase subnet CIDR range i.e ./24 can be increased to /16  
 
 
 
@@ -1100,12 +1124,14 @@ gsutil cp "${worker_log_file}" "${worker_log_bucket}"
 ```
 
 
-## Second Challenge VPC  
+## Second Challenge VPC    
+  
+
   
 **Requirements**   
   
 1. Two tier setup, front end abd backend  
-2. Each Autoscaled accross 2+ zones  
+2. Each Autoscaled accross 2+ zones  (consider 2 close regions)
 3. Use ping to represent traffic ICMP  
   
 **Frontend**  
@@ -1188,6 +1214,8 @@ gcloud services enable SERVICE_NAME
 - New subnet challenge-subnet
 	- europe-west2
 	- 10.0.0.0/9 
+	- or
+	- 192.168.0.0/24 192.168.20.0/24
 	- global but not needed
   
 gcloud command
@@ -1198,10 +1226,13 @@ gcloud compute networks subnets create challengesubnet --project=vpcplayground -
 ```
   
 **Firewall Rules**   
+  
+google always allows egress  so for backend need to deny all egress but allow be to be
+  
 
 ### frontend  
 
-- fe-allow-out
+#### fe-allow-out
 - direction = egress
 - on match = allow
 - targets = FE_Cluster_serviceAccount
@@ -1211,13 +1242,54 @@ gcloud compute networks subnets create challengesubnet --project=vpcplayground -
 ```
 gcloud compute --project=vpcplayground firewall-rules create fe-allow-out --description="Allow outbound  traffic to net " --direction=EGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --destination-ranges=0.0.0.0/0 --target-service-accounts=fe-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
 ```
+#### fe-allow-in  
+  
+ingress from anywhere  
+
+
+```
+gcloud compute --project=vpcplayground firewall-rules create fe-allow-in --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0 --target-service-accounts=fe-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
+```
 
 ### backend  
   
-- be-allow-in-fromfe
+#### be-allow-in-fromfes
+  
+ingress  
+  
 
 ```
-gcloud compute --project=vpcplayground firewall-rules create be-allow-in-fromfe --description="Allows inbound traffic only from front end " --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0 --target-service-accounts=be-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
+gcloud compute --project=vpcplayground firewall-rules create fetobe --description="allows front end to connect toback end" --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --source-service-accounts=fe-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com --target-service-accounts=be-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
 
+```
+
+#### backend to backend  
+    
+priority = 900 
+ingress 
+  
+
+```
+gcloud compute --project=vpcplayground firewall-rules create betobe --description="backend to backend" --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=icmp --source-service-accounts=be-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com --target-service-accounts=be-cluster-serviceaccount@vpcplayground.iam.gserviceaccount.com
+``` 
+  
+### block all backend to backend  
+  
+priority = 1000  
+
+  `
+### shell for debugging  
+  
+openshell
+targettag= openshell  
+tcp 22  
+  
+```
+gcloud compute --project=vpcplayground firewall-rules create openshell --direction=INGRESS --priority=1000 --network=challenge-vpc --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0 --target-tags=openShell
 ```
   
+
+## Resources  
+  
+[CodeLabs](https://codelabs.developers.google.com/cloud?hl=en)
+[quizlet](https://quizlet.com/ru/545736490/gcp-exam-ace-flash-cards/)
